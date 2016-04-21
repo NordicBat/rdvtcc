@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :vehicles
+  resources :cities
+  resources :states
   root to: 'visitors#index'
   devise_for :users
 end
