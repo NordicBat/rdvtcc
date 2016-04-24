@@ -1,1 +1,13 @@
 pt-BR:
+activerecord: 
+  attributes: 
+    state: 
+      name: "Nome"
+      uf: "UF"
+      title: Estados
+    city: 
+      name: "Nome"
+  models: 
+    state: Estado
+    city: Cidade
+    vehicle: Veiculo
