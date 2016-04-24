@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421210713) do
+ActiveRecord::Schema.define(version: 20160424190342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,67 @@ ActiveRecord::Schema.define(version: 20160421210713) do
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
+  create_table "fuels", force: :cascade do |t|
+    t.date     "date"
+    t.decimal  "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lodgings", force: :cascade do |t|
+    t.date     "date"
+    t.string   "hotelName"
+    t.string   "hotelPhone"
+    t.decimal  "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.date     "date"
+    t.string   "type"
+    t.decimal  "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.string   "name"
     t.string   "uf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "toll_boths", force: :cascade do |t|
+    t.date     "date"
+    t.decimal  "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "travels", force: :cascade do |t|
+    t.integer  "city_id"
+    t.date     "initialDate"
+    t.date     "finalDate"
+    t.string   "description"
+    t.integer  "user_id"
+    t.integer  "vehicle_id"
+    t.integer  "meal_id"
+    t.integer  "fuel_id"
+    t.integer  "lodging_id"
+    t.integer  "toll_both_id"
+    t.decimal  "finalOdometer"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "travels", ["city_id"], name: "index_travels_on_city_id", using: :btree
+  add_index "travels", ["fuel_id"], name: "index_travels_on_fuel_id", using: :btree
+  add_index "travels", ["lodging_id"], name: "index_travels_on_lodging_id", using: :btree
+  add_index "travels", ["meal_id"], name: "index_travels_on_meal_id", using: :btree
+  add_index "travels", ["toll_both_id"], name: "index_travels_on_toll_both_id", using: :btree
+  add_index "travels", ["user_id"], name: "index_travels_on_user_id", using: :btree
+  add_index "travels", ["vehicle_id"], name: "index_travels_on_vehicle_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -67,4 +122,11 @@ ActiveRecord::Schema.define(version: 20160421210713) do
   end
 
   add_foreign_key "cities", "states"
+  add_foreign_key "travels", "cities"
+  add_foreign_key "travels", "fuels"
+  add_foreign_key "travels", "lodgings"
+  add_foreign_key "travels", "meals"
+  add_foreign_key "travels", "toll_boths"
+  add_foreign_key "travels", "users"
+  add_foreign_key "travels", "vehicles"
 end

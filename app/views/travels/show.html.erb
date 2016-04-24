@@ -1,0 +1,39 @@
+<%- model_class = Travel -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:city_id) %>:</strong></dt>
+  <dd><%= @travel.city_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:initialDate) %>:</strong></dt>
+  <dd><%= @travel.initialDate %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:finalDate) %>:</strong></dt>
+  <dd><%= @travel.finalDate %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @travel.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @travel.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vehicle_id) %>:</strong></dt>
+  <dd><%= @travel.vehicle_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:meal_id) %>:</strong></dt>
+  <dd><%= @travel.meal_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fuel_id) %>:</strong></dt>
+  <dd><%= @travel.fuel_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lodging_id) %>:</strong></dt>
+  <dd><%= @travel.lodging_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:toll_both_id) %>:</strong></dt>
+  <dd><%= @travel.toll_both_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:finalOdometer) %>:</strong></dt>
+  <dd><%= @travel.finalOdometer %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              travels_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_travel_path(@travel), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              travel_path(@travel),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
