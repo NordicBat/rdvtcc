@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424190342) do
+ActiveRecord::Schema.define(version: 20160424200034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20160424190342) do
     t.decimal  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "travel_id"
   end
+
+  add_index "fuels", ["travel_id"], name: "index_fuels_on_travel_id", using: :btree
 
   create_table "lodgings", force: :cascade do |t|
     t.date     "date"
@@ -39,7 +42,10 @@ ActiveRecord::Schema.define(version: 20160424190342) do
     t.decimal  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "travel_id"
   end
+
+  add_index "lodgings", ["travel_id"], name: "index_lodgings_on_travel_id", using: :btree
 
   create_table "meals", force: :cascade do |t|
     t.date     "date"
@@ -47,7 +53,10 @@ ActiveRecord::Schema.define(version: 20160424190342) do
     t.decimal  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "travel_id"
   end
+
+  add_index "meals", ["travel_id"], name: "index_meals_on_travel_id", using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "name"
@@ -61,14 +70,16 @@ ActiveRecord::Schema.define(version: 20160424190342) do
     t.decimal  "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "travel_id"
   end
+
+  add_index "toll_boths", ["travel_id"], name: "index_toll_boths_on_travel_id", using: :btree
 
   create_table "travels", force: :cascade do |t|
     t.integer  "city_id"
     t.date     "initialDate"
     t.date     "finalDate"
     t.string   "description"
-    t.integer  "user_id"
     t.integer  "vehicle_id"
     t.integer  "meal_id"
     t.integer  "fuel_id"
@@ -84,7 +95,6 @@ ActiveRecord::Schema.define(version: 20160424190342) do
   add_index "travels", ["lodging_id"], name: "index_travels_on_lodging_id", using: :btree
   add_index "travels", ["meal_id"], name: "index_travels_on_meal_id", using: :btree
   add_index "travels", ["toll_both_id"], name: "index_travels_on_toll_both_id", using: :btree
-  add_index "travels", ["user_id"], name: "index_travels_on_user_id", using: :btree
   add_index "travels", ["vehicle_id"], name: "index_travels_on_vehicle_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -122,11 +132,14 @@ ActiveRecord::Schema.define(version: 20160424190342) do
   end
 
   add_foreign_key "cities", "states"
+  add_foreign_key "fuels", "travels"
+  add_foreign_key "lodgings", "travels"
+  add_foreign_key "meals", "travels"
+  add_foreign_key "toll_boths", "travels"
   add_foreign_key "travels", "cities"
   add_foreign_key "travels", "fuels"
   add_foreign_key "travels", "lodgings"
   add_foreign_key "travels", "meals"
   add_foreign_key "travels", "toll_boths"
-  add_foreign_key "travels", "users"
   add_foreign_key "travels", "vehicles"
 end

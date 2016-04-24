@@ -18,7 +18,7 @@ class TravelsControllerTest < ActionController::TestCase
 
   test "should create travel" do
     assert_difference('Travel.count') do
-      post :create, travel: { city_id: @travel.city_id, description: @travel.description, finalDate: @travel.finalDate, finalOdometer: @travel.finalOdometer, fuel_id: @travel.fuel_id, initialDate: @travel.initialDate, lodging_id: @travel.lodging_id, meal_id: @travel.meal_id, tollBoth_id: @travel.tollBoth_id, user_id: @travel.user_id, vehicle_id: @travel.vehicle_id }
+      post :create, travel: { city_id: @travel.city_id, description: @travel.description, finalDate: @travel.finalDate, finalOdometer: @travel.finalOdometer, fuel_id: @travel.fuel_id, initialDate: @travel.initialDate, lodging_id: @travel.lodging_id, meal_id: @travel.meal_id, tollBoth_id: @travel.tollBoth_id, vehicle_id: @travel.vehicle_id }
     end
 
     assert_redirected_to travel_path(assigns(:travel))
@@ -35,7 +35,7 @@ class TravelsControllerTest < ActionController::TestCase
   end
 
   test "should update travel" do
-    patch :update, id: @travel, travel: { city_id: @travel.city_id, description: @travel.description, finalDate: @travel.finalDate, finalOdometer: @travel.finalOdometer, fuel_id: @travel.fuel_id, initialDate: @travel.initialDate, lodging_id: @travel.lodging_id, meal_id: @travel.meal_id, tollBoth_id: @travel.tollBoth_id, user_id: @travel.user_id, vehicle_id: @travel.vehicle_id }
+    patch :update, id: @travel, travel: { city_id: @travel.city_id, description: @travel.description, finalDate: @travel.finalDate, finalOdometer: @travel.finalOdometer, fuel_id: @travel.fuel_id, initialDate: @travel.initialDate, lodging_id: @travel.lodging_id, meal_id: @travel.meal_id, tollBoth_id: @travel.tollBoth_id, vehicle_id: @travel.vehicle_id }
     assert_redirected_to travel_path(assigns(:travel))
   end
 

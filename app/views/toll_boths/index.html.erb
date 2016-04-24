@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:total) %></th>
+      <th><%= model_class.human_attribute_name(:travel_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -18,6 +19,7 @@
         <td><%= link_to toll_both.id, toll_both_path(toll_both) %></td>
         <td><%= toll_both.date %></td>
         <td><%= toll_both.total %></td>
+        <td><%= toll_both.travel_id %></td>
         <td><%=l toll_both.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
