@@ -6,6 +6,7 @@
 			<li class="sidebar-brand">
 				<a href="#"> Start Bootstrap </a>
 			</li>
+			<% if user_signed_in?%>
 			<li>
 				<%= link_to 'Viagem', travels_path %>
 			</li>
@@ -24,9 +25,11 @@
 			<li>
 				<%= link_to 'Cidades', cities_path %>
 			</li>
+			<% else %>
 			<li>
 				<a href="#">Contact</a>
 			</li>
+			<% end %>
 		</ul>
 	</div>
 	<!-- /#sidebar-wrapper -->
