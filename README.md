@@ -31,18 +31,9 @@ Getting Started
 
 Documentation and Support
 -------------------------
-
+[Documentation](http://edgeguides.rubyonrails.org/index.html)
 Issues
 -------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
 
 License
 -------
