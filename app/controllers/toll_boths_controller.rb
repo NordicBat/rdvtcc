@@ -1,6 +1,6 @@
 class TollBothsController < ApplicationController
   before_action :set_toll_both, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /toll_boths
   # GET /toll_boths.json
   def index
@@ -62,13 +62,14 @@ class TollBothsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_toll_both
-      @toll_both = TollBoth.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def toll_both_params
-      params.require(:toll_both).permit(:travel_id, :date, :total)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_toll_both
+    @toll_both = TollBoth.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def toll_both_params
+    params.require(:toll_both).permit(:travel_id, :date, :total)
+  end
 end

@@ -1,6 +1,6 @@
 class LodgingsController < ApplicationController
   before_action :set_lodging, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /lodgings
   # GET /lodgings.json
   def index
@@ -62,13 +62,14 @@ class LodgingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_lodging
-      @lodging = Lodging.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def lodging_params
-      params.require(:lodging).permit(:travel_id, :date, :hotelName, :hotelPhone, :total)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_lodging
+    @lodging = Lodging.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def lodging_params
+    params.require(:lodging).permit(:travel_id, :date, :hotelName, :hotelPhone, :total)
+  end
 end

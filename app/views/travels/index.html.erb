@@ -11,10 +11,6 @@
       <th><%= model_class.human_attribute_name(:finalDate) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:vehicle_id) %></th>
-      <th><%= model_class.human_attribute_name(:meal_id) %></th>
-      <th><%= model_class.human_attribute_name(:fuel_id) %></th>
-      <th><%= model_class.human_attribute_name(:lodging_id) %></th>
-      <th><%= model_class.human_attribute_name(:toll_both_id) %></th>
       <th><%= model_class.human_attribute_name(:finalOdometer) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -29,10 +25,6 @@
         <td><%= travel.finalDate %></td>
         <td><%= travel.description %></td>
         <td><%= travel.vehicle_id %></td>
-        <td><%= travel.meal_id %></td>
-        <td><%= travel.fuel_id %></td>
-        <td><%= travel.lodging_id %></td>
-        <td><%= travel.toll_both_id %></td>
         <td><%= travel.finalOdometer %></td>
         <td><%=l travel.created_at %></td>
         <td>
