@@ -1,69 +1,72 @@
 <%= form_for @travel, :html => { :class => "form-horizontal travel" } do |f| %>
 
-  <% if @travel.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@travel.errors.count, "error") %> prohibited this travel from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @travel.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+<% if @travel.errors.any? %>
+<div id="error_expl" class="panel panel-danger">
+	<div class="panel-heading">
+		<h3 class="panel-title"><%= pluralize(@travel.errors.count, "error") %> prohibited this travel from being saved:</h3>
+	</div>
+	<div class="panel-body">
+		<ul>
+			<% @travel.errors.full_messages.each do |msg| %>
+			<li>
+				<%= msg %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<% end %>
 
-  <div class="form-group">
-    <%= f.label :city_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :city_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:city_id) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :initialDate, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :initialDate, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:initialDate) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :finalDate, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :finalDate, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:finalDate) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :description, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:description) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :vehicle_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :vehicle_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:vehicle_id) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :finalOdometer, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :finalOdometer, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:finalOdometer) %>
-  </div>
+<div class="form-group">
+	<%= f.label :city_id, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.text_field :city_id, :class => 'form-control' %>
+	</div>
+	<%= f.error_span(:city_id) %>
+</div>
+<div class="form-group">
+	<%= f.label :initialDate, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.date_field :initialDate, :class => 'form-control' %>
+	</div>
+	<%= f.error_span(:initialDate) %>
+</div>
+<div class="form-group">
+	<%= f.label :finalDate, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.date_field :finalDate, :class => 'form-control' %>
+	</div>
+	<%= f.error_span(:finalDate) %>
+</div>
+<div class="form-group">
+	<%= f.label :description, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.text_field :description, :class => 'form-control' %>
+	</div>
+	<%= f.error_span(:description) %>
+</div>
+<div class="form-group">
+	<%= f.label :vehicle_id, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.collection_select(:vehicle_id, Vehicle.all, :id, :model, include_blank: false)%>
+		<%#= f.text_field :vehicle_id, :class => 'form-control' %>
+	</div>
+	<%= f.error_span(:vehicle_id) %>
+</div>
+<div class="form-group">
+	<%= f.label :finalOdometer, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.text_field :finalOdometer, :class => 'form-control' %>
+	</div>
+	<%= f.error_span(:finalOdometer) %>
+</div>
 
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                travels_path, :class => 'btn btn-default' %>
-    </div>
-  </div>
+<div class="form-group">
+	<div class="col-lg-offset-2 col-lg-10">
+		<%= f.submit nil, :class => 'btn btn-primary' %>
+		<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+		travels_path, :class => 'btn btn-default' %>
+	</div>
+</div>
 
 <% end %>

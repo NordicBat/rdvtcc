@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'twitter-bootstrap-rails'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 group :development, :test do
   gem 'byebug'
 end
