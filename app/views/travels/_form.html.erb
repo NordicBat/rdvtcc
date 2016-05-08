@@ -49,7 +49,6 @@
 	<%= f.label :vehicle_id, :class => 'control-label col-lg-2' %>
 	<div class="col-lg-10">
 		<%= f.collection_select(:vehicle_id, Vehicle.all, :id, :model, include_blank: false)%>
-		<%#= f.text_field :vehicle_id, :class => 'form-control' %>
 	</div>
 	<%= f.error_span(:vehicle_id) %>
 </div>

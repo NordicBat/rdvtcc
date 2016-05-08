@@ -9,7 +9,6 @@
       <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:total) %></th>
       <th><%= model_class.human_attribute_name(:travel_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,7 +19,6 @@
         <td><%= toll_booth.date %></td>
         <td><%= toll_booth.total %></td>
         <td><%= toll_booth.travel_id %></td>
-        <td><%=l toll_booth.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_toll_booth_path(toll_booth), :class => 'btn btn-default btn-xs' %>

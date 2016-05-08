@@ -18,7 +18,7 @@
   <div class="form-group">
     <%= f.label :date, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :date, :class => 'form-control' %>
+      <%= f.date_field :date, :class => 'form-control' %>
     </div>
     <%=f.error_span(:date) %>
   </div>
@@ -39,7 +39,7 @@
   <div class="form-group">
     <%= f.label :travel_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :travel_id, :class => 'form-control' %>
+    	<%= f.collection_select(:travel_id, Travel.all, :id, :description, include_blank: false)%>
     </div>
     <%=f.error_span(:travel_id) %>
   </div>
