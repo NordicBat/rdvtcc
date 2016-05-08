@@ -4,7 +4,8 @@ class TravelsController < ApplicationController
   # GET /travels
   # GET /travels.json
   def index
-    @travels = Travel.all
+    #@travels = Travel.all
+    @travels = Travel.page(params[:page]).per(10)
   end
 
   # GET /travels/1
