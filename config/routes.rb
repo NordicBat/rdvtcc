@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :travels
   resources :toll_boths
   resources :fuels
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
   resources :states
   root to: 'visitors#index'
   devise_for :users
+  get 'contact/index'
 end
