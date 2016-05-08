@@ -1,23 +1,23 @@
-<%- model_class = TollBoth -%>
+<%- model_class = TollBooth -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= @toll_both.date %></dd>
+  <dd><%= @toll_booth.date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:total) %>:</strong></dt>
-  <dd><%= @toll_both.total %></dd>
+  <dd><%= @toll_booth.total %></dd>
   <dt><strong><%= model_class.human_attribute_name(:travel_id) %>:</strong></dt>
-  <dd><%= @toll_both.travel_id %></dd>
+  <dd><%= @toll_booth.travel_id %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              toll_boths_path, :class => 'btn btn-default'  %>
+              toll_booths_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_toll_both_path(@toll_both), :class => 'btn btn-default' %>
+              edit_toll_booth_path(@toll_booth), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              toll_both_path(@toll_both),
+              toll_booth_path(@toll_booth),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

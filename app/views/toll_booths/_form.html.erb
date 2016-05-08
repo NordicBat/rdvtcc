@@ -1,13 +1,13 @@
-<%= form_for @toll_both, :html => { :class => "form-horizontal toll_both" } do |f| %>
+<%= form_for @toll_booth, :html => { :class => "form-horizontal toll_booth" } do |f| %>
 
-  <% if @toll_both.errors.any? %>
+  <% if @toll_booth.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@toll_both.errors.count, "error") %> prohibited this toll_both from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@toll_booth.errors.count, "error") %> prohibited this toll_booth from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
-        <% @toll_both.errors.full_messages.each do |msg| %>
+        <% @toll_booth.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>
@@ -41,7 +41,7 @@
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                toll_boths_path, :class => 'btn btn-default' %>
+                toll_booths_path, :class => 'btn btn-default' %>
     </div>
   </div>
 

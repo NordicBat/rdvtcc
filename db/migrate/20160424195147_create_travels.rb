@@ -9,7 +9,7 @@ class CreateTravels < ActiveRecord::Migration
       t.references :meal, index: true, foreign_key: true
       t.references :fuel, index: true, foreign_key: true
       t.references :lodging, index: true, foreign_key: true
-      t.references :toll_both, index: true, foreign_key: true
+      t.references :toll_booth, index: true, foreign_key: true
       t.decimal :finalOdometer
 
       t.timestamps null: false

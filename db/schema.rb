@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20160429004403) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "toll_boths", force: :cascade do |t|
+  create_table "toll_booths", force: :cascade do |t|
     t.date     "date"
     t.decimal  "total"
     t.datetime "created_at", null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20160429004403) do
     t.integer  "travel_id"
   end
 
-  add_index "toll_boths", ["travel_id"], name: "index_toll_boths_on_travel_id", using: :btree
+  add_index "toll_booths", ["travel_id"], name: "index_toll_booths_on_travel_id", using: :btree
 
   create_table "travels", force: :cascade do |t|
     t.integer  "city_id"
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20160429004403) do
   add_foreign_key "fuels", "travels"
   add_foreign_key "lodgings", "travels"
   add_foreign_key "meals", "travels"
-  add_foreign_key "toll_boths", "travels"
+  add_foreign_key "toll_booths", "travels"
   add_foreign_key "travels", "cities"
   add_foreign_key "travels", "vehicles"
 end

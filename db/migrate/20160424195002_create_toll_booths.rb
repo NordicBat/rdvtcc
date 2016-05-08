@@ -1,6 +1,6 @@
-class CreateTollBoths < ActiveRecord::Migration
+class CreateTollBooths < ActiveRecord::Migration
   def change
-    create_table :toll_boths do |t|
+    create_table :toll_booths do |t|
       t.date :date
       t.decimal :total
 
