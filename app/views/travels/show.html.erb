@@ -17,7 +17,19 @@
   <dt><strong><%= model_class.human_attribute_name(:finalOdometer) %>:</strong></dt>
   <dd><%= @travel.finalOdometer %></dd>
 </dl>
-
+<div align="center">
+	<table>
+  <tr>
+    <td><%= link_to raw("<i class=\"glyphicon glyphicon-cutlery\"> Refeições </i>"),  meals_path,  class: "btn btn-default"  %></td>
+    <td><%= link_to raw("<i class=\"glyphicon glyphicon-home\"> Hospedagem </i>"),  lodgings_path,  class: "btn btn-default"  %></td>
+  </tr>
+  <tr>
+    <td><%= link_to raw("<i class=\"glyphicon glyphicon-fire\"> Combustivel </i>"),  fuels_path,  class: "btn btn-default"  %></td>
+    <td><%= link_to raw("<i class=\"glyphicon glyphicon-road\"> Pedagios </i>"),  toll_booths_path,  class: "btn btn-default"  %></td>
+  </tr>
+</table>
+	
+</div>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               travels_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
