@@ -6,6 +6,13 @@ class CitiesController < ApplicationController
   def index
     #@cities = City.all
     @cities = City.page(params[:page]).per(10)
+
+  #@cities = Post.all
+  #if params[:search]
+  #  @cities = City.search(params[:search]).order("created_at DESC")
+  #else
+  #  @cities = City.all.order('created_at DESC')
+  #end
   end
 
   # GET /cities/1
