@@ -1,4 +1,4 @@
-<%= form_for @toll_booth, :html => { :class => "form-horizontal toll_booth" } do |f| %>
+<%= form_for([@travel, @toll_booth]), :html => { :class => "form-horizontal toll_booth" } do |f| %>
 
   <% if @toll_booth.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -29,6 +29,7 @@
     </div>
     <%=f.error_span(:total) %>
   </div>
+  <!--
   <div class="form-group">
     <%= f.label :travel_id, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -36,12 +37,12 @@
     </div>
     <%=f.error_span(:travel_id) %>
   </div>
-
+-->
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                toll_booths_path, :class => 'btn btn-default' %>
+                travel_toll_booth_path(@travel) , :class => 'btn btn-default' %>
     </div>
   </div>
 

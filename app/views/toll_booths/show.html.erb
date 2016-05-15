@@ -13,11 +13,11 @@
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              toll_booths_path, :class => 'btn btn-default'  %>
+              travel_toll_booths_path(@travel), :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_toll_booth_path(@toll_booth), :class => 'btn btn-default' %>
+               edit_travel_toll_booth_path(@parent, @toll_booth), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              toll_booth_path(@toll_booth),
+              [@travel, @toll_booth],
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

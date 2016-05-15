@@ -15,15 +15,15 @@
   <tbody>
     <% @toll_booths.each do |toll_booth| %>
       <tr>
-        <td><%= link_to toll_booth.id, toll_booth_path(toll_booth) %></td>
+        <td><%= link_to toll_booth.id, travel_toll_booth_path(@travel, toll_booth) %></td>
         <td><%= toll_booth.date %></td>
         <td><%= toll_booth.total %></td>
         <td><%= toll_booth.travel_id %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_toll_booth_path(toll_booth), :class => 'btn btn-default btn-xs' %>
+                      edit_travel_toll_booth_path(@parent, toll_booth), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      toll_booth_path(toll_booth),
+                      [@travel, toll_booth],
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
@@ -34,5 +34,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_toll_booth_path,
+            new_travel_toll_booth_path(@travel),
             :class => 'btn btn-primary' %>
