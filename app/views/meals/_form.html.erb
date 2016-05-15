@@ -1,56 +1,59 @@
-<%= form_for @meal, :html => { :class => "form-horizontal meal" } do |f| %>
+<%= form_for ([@travel, @meal]), :html => { :class => "form-horizontal meal" } do |f| %>
 
-  <% if @meal.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @meal.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+<% if @meal.errors.any? %>
+<div id="error_expl" class="panel panel-danger">
+	<div class="panel-heading">
+		<h3 class="panel-title"><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h3>
+	</div>
+	<div class="panel-body">
+		<ul>
+			<% @meal.errors.full_messages.each do |msg| %>
+			<li>
+				<%= msg %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<% end %>
 
-  <div class="form-group">
-    <%= f.label :date, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.date_field :date, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:date) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :kind, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-    	<%= f.select(:kind, ["Café", "Almoço", "Jantar","Lanche"]) %>
-      <%#= f.text_field :kind, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:kind) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :total, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :total, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:total) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :travel_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-    	<%= f.collection_select(:travel_id, Travel.all, :id, :description, include_blank: false)%>
-    </div>
-    <%=f.error_span(:travel_id) %>
-  </div>
-
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                meals_path, :class => 'btn btn-default' %>
-    </div>
-  </div>
+<div class="form-group">
+	<%= f.label :date, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.date_field :date, :class => 'form-control' %>
+	</div>
+	<%= f.error_span(:date) %>
+</div>
+<div class="form-group">
+	<%= f.label :kind, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.select(:kind, ["Café", "Almoço", "Jantar","Lanche"]) %>
+		<%#= f.text_field :kind, :class => 'form-control' %>
+	</div>
+	<%=f.error_span(:kind) %>
+</div>
+<div class="form-group">
+	<%= f.label :total, :class => 'control-label col-lg-2' %>
+	<div class="col-lg-10">
+		<%= f.text_field :total, :class => 'form-control' %>
+	</div>
+	<%= f.error_span(:total) %>
+</div>
+<!--
+<div class="form-group">
+<%= f.label :travel_id, :class => 'control-label col-lg-2' %>
+<div class="col-lg-10">
+<%= f.collection_select(:travel_id, Travel.all, :id, :description, include_blank: false)%>
+</div>
+<%=f.error_span(:travel_id) %>
+</div>
+-->
+<div class="form-group">
+	<div class="col-lg-offset-2 col-lg-10">
+		<%= f.submit nil, :class => 'btn btn-primary' %>
+		<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+		travel_meals_path(@travel), :class => 'btn btn-default' %>
+	</div>
+</div>
 
 <% end %>

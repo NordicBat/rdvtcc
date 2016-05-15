@@ -20,12 +20,12 @@
 <div align="center">
 	<table>
   <tr>
-    <td><%= link_to raw("<i class=\"glyphicon glyphicon-cutlery\"> Refeições </i>"),  meals_path,  class: "btn btn-default"  %></td>
-    <td><%= link_to raw("<i class=\"glyphicon glyphicon-home\"> Hospedagem </i>"),  lodgings_path,  class: "btn btn-default"  %></td>
+    <td><%= link_to raw("<i class=\"glyphicon glyphicon-cutlery\"> Refeições </i>"),  new_travel_meal_path(@travel.id),  class: "btn btn-default"  %></td>
+    <td><%= link_to raw("<i class=\"glyphicon glyphicon-home\"> Hospedagem </i>"),  new_travel_lodging_path(@travel.id),  class: "btn btn-default"  %></td>
   </tr>
   <tr>
-    <td><%= link_to raw("<i class=\"glyphicon glyphicon-fire\"> Combustivel </i>"),  fuels_path,  class: "btn btn-default"  %></td>
-    <td><%= link_to raw("<i class=\"glyphicon glyphicon-road\"> Pedagios </i>"),  toll_booths_path,  class: "btn btn-default"  %></td>
+    <td><%= link_to raw("<i class=\"glyphicon glyphicon-fire\"> Combustivel </i>"),  new_travel_fuel_path(@travel.id),  class: "btn btn-default"  %></td>
+    <td><%= link_to raw("<i class=\"glyphicon glyphicon-road\"> Pedagios </i>"),  new_travel_toll_both_path(@travel.id),  class: "btn btn-default"  %></td>
   </tr>
 </table>
 	
