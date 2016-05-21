@@ -18,7 +18,7 @@ class TollBoothsController < ApplicationController
   # GET /toll_boths/new
   def new
     #@toll_booth = TollBooth.new
-    @toll_booth = @travel.toll_booths.new
+     @toll_booth = @travel.toll_booths.new
   end
 
   # GET /toll_boths/1/edit

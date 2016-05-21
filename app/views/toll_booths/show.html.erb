@@ -10,6 +10,7 @@
   <dd><%= @toll_booth.total %></dd>
   <dt><strong><%= model_class.human_attribute_name(:travel_id) %>:</strong></dt>
   <dd><%= @toll_booth.travel_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong><%= image_tag @toll_both.image.thumb.url %></dt>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

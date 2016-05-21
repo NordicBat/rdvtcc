@@ -10,6 +10,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'twitter-bootstrap-rails'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'carrierwave' #, '~> 0.10.0'
+gem 'mini_magick' #, '~> 4.3'
 group :development, :test do
   gem 'byebug'
 end
