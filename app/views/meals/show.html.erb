@@ -28,6 +28,7 @@
 	<dd>
 		<%= @meal.travel_id %>
 	</dd>
+	<dt><strong><%= model_class.human_attribute_name(:image) %>:</strong><%= image_tag @meal.image.thumb.url %></dt>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
