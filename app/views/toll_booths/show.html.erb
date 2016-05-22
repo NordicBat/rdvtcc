@@ -14,7 +14,7 @@
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-              travel_toll_booths_path(@travel), :class => 'btn btn-default'  %>
+              travel_path(@travel), :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
                edit_travel_toll_booth_path(@parent, @toll_booth), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

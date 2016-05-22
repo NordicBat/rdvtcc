@@ -32,7 +32,7 @@
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
-travel_meals_path(@meal), :class => 'btn btn-default'  %>
+travel_path(@travel), :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
 edit_travel_meal_path(@travel, @meal), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
