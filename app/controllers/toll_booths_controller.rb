@@ -2,56 +2,58 @@ class TollBoothsController < ApplicationController
   before_action :set_toll_booth, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_filter :load_travel
-  # GET /toll_boths
-  # GET /toll_boths.json
+  
+  # GET /toll_booths
+  # GET /toll_booths.json
+  
   def index
-    #@toll_booths = TollBooth.all
+    #@toll_booths = Tollbooth.all
     @toll_booths = @travel.toll_booths.all
   end
 
-  # GET /toll_boths/1
-  # GET /toll_boths/1.json
+  # GET /toll_booths/1
+  # GET /toll_booths/1.json
   def show
-    @toll_booth = @travel.toll_booths.find(params[:id])
+    @toll_booths = @travel.toll_booths.find(params[:id])
   end
 
-  # GET /toll_boths/new
+  # GET /toll_booths/new
   def new
-    #@toll_booth = TollBooth.new
-     @toll_booth = @travel.toll_booths.new
+    #@toll_booth = Tollbooth.new
+    @toll_booth = @travel.toll_booth.new
   end
 
-  # GET /toll_boths/1/edit
+  # GET /toll_booths/1/edit
   def edit
-    @toll_booth = @travel.toll_booths.find(params[:id])
+    @toll_booths = @travel.toll_booths.find(params[:id])
   end
 
-  # POST /toll_boths
-  # POST /toll_boths.json
+  # POST /toll_booths
+  # POST /toll_booths.json
   def create
-    #@toll_booth = TollBooth.new(toll_booth_params)
+    #@toll_booth = Tollbooth.new(toll_booth_params)
     params.permit!
-    @toll_booth = @travel.toll_booths.new(params[:toll_booth])
+    @toll_booths = @travel.toll_booths.new(params[:toll_booth])
     respond_to do |format|
       if @toll_booth.save
         #format.html { redirect_to @toll_booth, notice: 'Toll booth was successfully created.' }
-        format.html { redirect_to [@travel, @toll_booth], notice: 'Toll Booth was successfully created.' }
-        format.json { render :show, status: :created, location: @toll_booth }
+        format.html { redirect_to [@travel, @toll_booths], notice: 'Toll booth was successfully created.' }
+        format.json { render :show, status: :created, location: @toll_booths }
       else
         format.html { render :new }
-        format.json { render json: @toll_booth.errors, status: :unprocessable_entity }
+        format.json { render json: @toll_booths.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /toll_boths/1
-  # PATCH/PUT /toll_boths/1.json
+  # PATCH/PUT /toll_booths/1
+  # PATCH/PUT /toll_booths/1.json
   def update
     @toll_booth = @travel.toll_booths.find(params[:id])
     respond_to do |format|
       if @toll_booth.update(toll_booth_params)
-        #format.html { redirect_to @toll_booth, notice: 'Toll both was successfully updated.' }
-        format.html { redirect_to [@travel, @toll_booth], notice: 'Toll Booth was successfully updated.' }
+        #format.html { redirect_to @toll_booth, notice: 'Toll booth was successfully updated.' }
+        format.html { redirect_to [@travel, @toll_booth], notice: 'Toll booth was successfully updated.' }
         format.json { render :show, status: :ok, location: @toll_booth }
       else
         format.html { render :edit }
@@ -60,14 +62,14 @@ class TollBoothsController < ApplicationController
     end
   end
 
-  # DELETE /toll_boths/1
-  # DELETE /toll_boths/1.json
+  # DELETE /toll_booths/1
+  # DELETE /toll_booths/1.json
   def destroy
     @toll_booth = @travel.toll_booths.find(params[:id])
     @toll_booth.destroy
     respond_to do |format|
     #format.html { redirect_to toll_booths_url, notice: 'Toll booth was successfully destroyed.' }
-      format.html { redirect_to parent_toll_booths_path(@travel) }
+      format.html { redirect_to travel_toll_booths_path(@travel) }
       format.json { head :no_content }
     end
   end
