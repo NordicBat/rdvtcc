@@ -1,4 +1,5 @@
 <%- model_class = Travel -%>
+
 <div class="page-header">
 	<h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -12,9 +13,8 @@
 			<th><%= model_class.human_attribute_name(:description) %></th>
 			<th><%= model_class.human_attribute_name(:vehicle_id) %></th>
 			<th><%= model_class.human_attribute_name(:finalOdometer) %></th>
-			<th><%#= model_class.human_attribute_name(:finalOdometer) %>
-			Total </th>
-			<th><%=t '.actions', :default => t("helpers.actions") %></th>
+			<th>Total</th>
+			<th><%= t '.actions', :default => t("helpers.actions") %></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,9 +25,9 @@
 			<td><%= travel.initialDate %></td>
 			<td><%= travel.finalDate %></td>
 			<td><%= travel.description %></td>
-			<td><%= travel.vehicle_id %></td>
+			<td><%= travel.vehicle_id%></td>
 			<td><%= travel.finalOdometer %></td>
-			<td> total </td>
+			<td><%=  Meal.sum(:total, :conditions => ['travel_id = ?', :id]) + Fuel.sum(:total, :conditions => ['travel_id = ?', :id]) + Lodging.sum(:total, :conditions => ['travel_id = ?', :id]) %></td>
 			<td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
 			edit_travel_path(travel), :class => 'btn btn-default btn-xs' %>
 			<%= link_to t('.destroy', :default => t("helpers.links.destroy")),

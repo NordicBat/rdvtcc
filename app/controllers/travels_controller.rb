@@ -1,6 +1,7 @@
 class TravelsController < ApplicationController
   before_action :set_travel, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
   # GET /travels
   # GET /travels.json
   def index
@@ -63,13 +64,14 @@ class TravelsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_travel
-      @travel = Travel.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def travel_params
-      params.require(:travel).permit(:city_id, :initialDate, :finalDate, :description, :vehicle_id, :meal_id, :fuel_id, :lodging_id, :tollBoth_id, :finalOdometer)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_travel
+    @travel = Travel.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def travel_params
+    params.require(:travel).permit(:city_id, :initialDate, :finalDate, :description, :vehicle_id, :meal_id, :fuel_id, :lodging_id, :tollBoth_id, :finalOdometer)
+  end
 end
