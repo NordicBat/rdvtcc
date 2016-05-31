@@ -26,8 +26,8 @@
 			<td><%= travel.finalDate %></td>
 			<td><%= travel.description %></td>
 			<td><%= travel.vehicle_id%></td>
-			<td><%= travel.finalOdometer %></td>
-			<td><%=  Meal.sum(:total, :conditions => ['travel_id = ?', :id]) + Fuel.sum(:total, :conditions => ['travel_id = ?', :id]) + Lodging.sum(:total, :conditions => ['travel_id = ?', :id]) %></td>
+			<td><%= travel.finalOdometer %></td>			
+			<td><%= travel.total_meal_amount + travel.total_lodging_amount + travel.total_fuel_amount%></td>
 			<td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
 			edit_travel_path(travel), :class => 'btn btn-default btn-xs' %>
 			<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
