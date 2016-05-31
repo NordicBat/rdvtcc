@@ -84,6 +84,8 @@ GEM
       activesupport (>= 4.1.0)
     hub (1.12.4)
     i18n (0.7.0)
+    i18n_generators (2.1.1)
+      rails (>= 3.0.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -213,6 +215,7 @@ DEPENDENCIES
   devise
   devise-i18n
   hub
+  i18n_generators
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

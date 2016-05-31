@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'carrierwave' #, '~> 0.10.0'
 gem 'mini_magick' #, '~> 4.3'
+gem 'i18n_generators'
 group :development, :test do
   gem 'byebug'
 end
