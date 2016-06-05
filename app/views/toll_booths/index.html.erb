@@ -21,7 +21,7 @@
         <td><%= toll_booth.travel_id %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_travel_toll_booth_path(@parent, toll_booth), :class => 'btn btn-default btn-xs' %>
+                      edit_travel_toll_booth_path(@travel, toll_booth), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       [@travel, toll_booth],
                       :method => :delete,

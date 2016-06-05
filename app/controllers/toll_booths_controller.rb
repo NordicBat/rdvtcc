@@ -20,7 +20,7 @@ class TollBoothsController < ApplicationController
   # GET /toll_booths/new
   def new
     #@toll_booth = Tollbooth.new
-    @toll_booth = @travel.toll_booth.new
+    @toll_booth = @travel.toll_booths.new
   end
 
   # GET /toll_booths/1/edit
@@ -35,7 +35,7 @@ class TollBoothsController < ApplicationController
     params.permit!
     @toll_booths = @travel.toll_booths.new(params[:toll_booth])
     respond_to do |format|
-      if @toll_booth.save
+      if @toll_booths.save
         #format.html { redirect_to @toll_booth, notice: 'Toll booth was successfully created.' }
         format.html { redirect_to [@travel, @toll_booths], notice: 'Toll booth was successfully created.' }
         format.json { render :show, status: :created, location: @toll_booths }
