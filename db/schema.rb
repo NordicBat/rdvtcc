@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522175420) do
+ActiveRecord::Schema.define(version: 20160605184210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160522175420) do
     t.datetime "updated_at", null: false
     t.integer  "travel_id"
     t.string   "image"
+    t.decimal  "odometer"
   end
 
   add_index "fuels", ["travel_id"], name: "index_fuels_on_travel_id", using: :btree
@@ -85,12 +86,13 @@ ActiveRecord::Schema.define(version: 20160522175420) do
     t.date     "finalDate"
     t.string   "description"
     t.integer  "vehicle_id"
-    t.decimal  "finalOdometer"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   add_index "travels", ["city_id"], name: "index_travels_on_city_id", using: :btree
+  add_index "travels", ["user_id"], name: "index_travels_on_user_id", using: :btree
   add_index "travels", ["vehicle_id"], name: "index_travels_on_vehicle_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -133,5 +135,6 @@ ActiveRecord::Schema.define(version: 20160522175420) do
   add_foreign_key "meals", "travels"
   add_foreign_key "toll_booths", "travels"
   add_foreign_key "travels", "cities"
+  add_foreign_key "travels", "users"
   add_foreign_key "travels", "vehicles"
 end
