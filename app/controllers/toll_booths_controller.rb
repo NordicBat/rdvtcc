@@ -2,10 +2,9 @@ class TollBoothsController < ApplicationController
   before_action :set_toll_booth, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_filter :load_travel
-  
+
   # GET /toll_booths
   # GET /toll_booths.json
-  
   def index
     #@toll_booths = Tollbooth.all
     @toll_booths = @travel.toll_booths.all
@@ -65,6 +64,8 @@ class TollBoothsController < ApplicationController
   # DELETE /toll_booths/1
   # DELETE /toll_booths/1.json
   def destroy
+    @users= User.all
+    authorize @users
     @toll_booth = @travel.toll_booths.find(params[:id])
     @toll_booth.destroy
     respond_to do |format|

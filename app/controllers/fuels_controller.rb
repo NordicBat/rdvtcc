@@ -65,11 +65,11 @@ class FuelsController < ApplicationController
   # DELETE /fuels/1
   # DELETE /fuels/1.json
   def destroy
+    @users= User.all
+    authorize @users
     @fuel = @travel.fuels.find(params[:id])
     @fuel.destroy
 
-    @users= User.all
-    authorize @users
     respond_to do |format|
     #format.html { redirect_to fuels_url, notice: 'Fuel was successfully destroyed.' }
       format.html { redirect_to travel_fuels_path(@travel) }

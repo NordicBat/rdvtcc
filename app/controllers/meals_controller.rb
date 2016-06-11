@@ -66,10 +66,11 @@ class MealsController < ApplicationController
   # DELETE /meals/1
   # DELETE /meals/1.json
   def destroy
-    @meal = @travel.meals.find(params[:id])
-    @meal.destroy
     @users= User.all
     authorize @users
+    @meal = @travel.meals.find(params[:id])
+    @meal.destroy
+
     respond_to do |format|
     #format.html { redirect_to meals_url, notice: 'Meal was successfully destroyed.' }
       format.html { redirect_to travel_meals_path(@travel) }

@@ -67,10 +67,11 @@ class LodgingsController < ApplicationController
   # DELETE /lodgings/1
   # DELETE /lodgings/1.json
   def destroy
-    @lodging = @travel.lodgings.find(params[:id])
-    @lodging.destroy
     @users= User.all
     authorize @users
+    @lodging = @travel.lodgings.find(params[:id])
+    @lodging.destroy
+
     respond_to do |format|
     #format.html { redirect_to lodgings_url, notice: 'Lodging was successfully destroyed.' }
       format.html { redirect_to travel_lodgings_path(@travel),notice: 'Lodging was successfully destroyed.'}
