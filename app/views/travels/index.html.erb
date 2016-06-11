@@ -12,6 +12,7 @@
 			<th><%= model_class.human_attribute_name(:finalDate) %></th>
 			<th><%= model_class.human_attribute_name(:description) %></th>
 			<th><%= model_class.human_attribute_name(:vehicle_id) %></th>
+			<th>Custo KM</th>
 			<th>Total</th>
 			<th><%= t '.actions', :default => t("helpers.actions") %></th>
 		</tr>
@@ -25,6 +26,7 @@
 			<td><%= travel.finalDate %></td>
 			<td><%= travel.description %></td>
 			<td><%= travel.vehicle_id%></td>
+			<td><%= travel.km_cost(travel.vehicle_id)%></td>
 			<td><%= travel.total_meal_amount + travel.total_lodging_amount + travel.total_fuel_amount + travel.total_toll_booth_amount %></td>
 			<td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
 			edit_travel_path(travel), :class => 'btn btn-default btn-xs' %>

@@ -1,10 +1,10 @@
 class Travel < ActiveRecord::Base
 
-  has_many :cities
-  has_many :meals
-  has_many :fuels
-  has_many :lodgings
-  has_many :toll_booths
+  has_many :cities, :dependent => :destroy
+  has_many :meals, :dependent => :destroy
+  has_many :fuels, :dependent => :destroy
+  has_many :lodgings, :dependent => :destroy
+  has_many :toll_booths, :dependent => :destroy
   accepts_nested_attributes_for :meals, :lodgings, :fuels, :toll_booths
   has_one :vehicle
   def total_meal_amount
@@ -23,4 +23,8 @@ class Travel < ActiveRecord::Base
     toll_booths.map(&:total).sum
   end
 
+  def km_cost(vehicle_id)
+    v = Vehicle.find(vehicle_id)
+    (v.odometerActual.to_s.to_d - fuels.map(&:odometer).to_s.to_d)/fuels.map(&:total).to_s.to_d
+  end
 end
