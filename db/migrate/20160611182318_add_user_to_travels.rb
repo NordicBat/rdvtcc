@@ -1,5 +1,5 @@
 class AddUserToTravels < ActiveRecord::Migration
   def change
-    add_reference :travels, :user, index: true, foreign_key: true
+    add_column :travels, :user, :integer
   end
 end
