@@ -53,9 +53,9 @@
 	<%= f.error_span(:vehicle_id) %>
 </div>
 <div class="form-group">
-	<%= f.label :user_id, :class => 'control-label col-lg-2' %>
+	<%= f.label :user, :class => 'control-label col-lg-2' %>
 	<div class="col-lg-10">
-		<%= f.text_field :user_id, :value => current_user.id, :class => 'form-control', :readonly => true %>
+		<%= f.text_field :user,  :class => 'form-control' %>
 	</div>
 </div>
 
