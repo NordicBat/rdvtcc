@@ -24,6 +24,9 @@ class LodgingsController < ApplicationController
   # GET /lodgings/1/edit
   def edit
     @lodging = @travel.lodgings.find(params[:id])
+    @users= User.all
+    authorize @users
+
   end
 
   # POST /lodgings
@@ -66,6 +69,8 @@ class LodgingsController < ApplicationController
   def destroy
     @lodging = @travel.lodgings.find(params[:id])
     @lodging.destroy
+    @users= User.all
+    authorize @users
     respond_to do |format|
     #format.html { redirect_to lodgings_url, notice: 'Lodging was successfully destroyed.' }
       format.html { redirect_to travel_lodgings_path(@travel),notice: 'Lodging was successfully destroyed.'}

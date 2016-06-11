@@ -1,7 +1,6 @@
 class TravelsController < ApplicationController
   before_action :set_travel, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
   # GET /travels
   # GET /travels.json
   def index
@@ -21,6 +20,8 @@ class TravelsController < ApplicationController
 
   # GET /travels/1/edit
   def edit
+    @users= User.all
+    authorize @users
   end
 
   # POST /travels
@@ -57,6 +58,8 @@ class TravelsController < ApplicationController
   # DELETE /travels/1.json
   def destroy
     @travel.destroy
+    @users= User.all
+    authorize @users
     respond_to do |format|
       format.html { redirect_to travels_url, notice: 'Travel was successfully destroyed.' }
       format.json { head :no_content }

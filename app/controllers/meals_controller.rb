@@ -24,6 +24,8 @@ class MealsController < ApplicationController
   # GET /meals/1/edit
   def edit
     @meal = @travel.meals.find(params[:id])
+    @users= User.all
+    authorize @users
   end
 
   # POST /meals
@@ -48,7 +50,7 @@ class MealsController < ApplicationController
   # PATCH/PUT /meals/1.json
   def update
     @meal = @travel.meals.find(params[:id])
-    
+
     respond_to do |format|
       if @meal.update(meal_params)
         #format.html { redirect_to @meal, notice: 'Meal was successfully updated.' }
@@ -64,11 +66,12 @@ class MealsController < ApplicationController
   # DELETE /meals/1
   # DELETE /meals/1.json
   def destroy
-     @meal = @travel.meals.find(params[:id])
-     @meal.destroy
-     
+    @meal = @travel.meals.find(params[:id])
+    @meal.destroy
+    @users= User.all
+    authorize @users
     respond_to do |format|
-      #format.html { redirect_to meals_url, notice: 'Meal was successfully destroyed.' }
+    #format.html { redirect_to meals_url, notice: 'Meal was successfully destroyed.' }
       format.html { redirect_to travel_meals_path(@travel) }
       format.json { head :no_content }
     end

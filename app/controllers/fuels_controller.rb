@@ -24,6 +24,8 @@ class FuelsController < ApplicationController
   # GET /fuels/1/edit
   def edit
     @fuel = @travel.fuels.find(params[:id])
+    @users= User.all
+    authorize @users
   end
 
   # POST /fuels
@@ -66,8 +68,10 @@ class FuelsController < ApplicationController
     @fuel = @travel.fuels.find(params[:id])
     @fuel.destroy
 
+    @users= User.all
+    authorize @users
     respond_to do |format|
-      #format.html { redirect_to fuels_url, notice: 'Fuel was successfully destroyed.' }
+    #format.html { redirect_to fuels_url, notice: 'Fuel was successfully destroyed.' }
       format.html { redirect_to travel_fuels_path(@travel) }
       format.json { head :no_content }
     end
