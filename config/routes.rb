@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'contact/index'
+  get 'control_users/index'
 end
