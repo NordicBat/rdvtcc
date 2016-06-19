@@ -1,5 +1,10 @@
 class Travel < ActiveRecord::Base
 
+  validates :city_id, presence: true
+  validates :initialDate, presence: true
+  validates :finalDate, presence: true
+  validates :vehicle_id, presence: true
+
   has_many :cities, :dependent => :destroy
   has_many :meals, :dependent => :destroy
   has_many :fuels, :dependent => :destroy
@@ -24,8 +29,4 @@ class Travel < ActiveRecord::Base
     toll_booths.map(&:total).sum
   end
 
-  def km_cost(vehicle_id)
-    v = Vehicle.find(vehicle_id)
-    (v.odometerActual.to_s.to_d - fuels.map(&:odometer).to_s.to_d)/fuels.map(&:total).to_s.to_d
-  end
 end

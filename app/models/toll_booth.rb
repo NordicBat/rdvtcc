@@ -1,5 +1,9 @@
 class TollBooth < ActiveRecord::Base
   belongs_to :travel
+  validates :date, presence: true
+  validates :total, presence: true
+  validates :image, presence: true
+
   mount_uploader :image, ImageUploader
   validates_processing_of :image
   validate :image_size_validation
