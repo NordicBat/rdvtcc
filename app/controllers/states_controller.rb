@@ -20,11 +20,15 @@ class StatesController < ApplicationController
 
   # GET /states/1/edit
   def edit
+    @users= User.all
+    authorize @users
   end
 
   # POST /states
   # POST /states.json
   def create
+    @users= User.all
+    authorize @users
     @state = State.new(state_params)
 
     respond_to do |format|
@@ -55,6 +59,8 @@ class StatesController < ApplicationController
   # DELETE /states/1
   # DELETE /states/1.json
   def destroy
+    @users= User.all
+    authorize @users
     @state.destroy
     respond_to do |format|
       format.html { redirect_to states_url, notice: 'State was successfully destroyed.' }

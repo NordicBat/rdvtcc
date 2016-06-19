@@ -27,11 +27,15 @@ class CitiesController < ApplicationController
 
   # GET /cities/1/edit
   def edit
+    @users= User.all
+    authorize @users
   end
 
   # POST /cities
   # POST /cities.json
   def create
+    @users= User.all
+    authorize @users
     @city = City.new(city_params)
 
     respond_to do |format|
@@ -62,6 +66,8 @@ class CitiesController < ApplicationController
   # DELETE /cities/1
   # DELETE /cities/1.json
   def destroy
+    @users= User.all
+    authorize @users
     @city.destroy
     respond_to do |format|
       format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
