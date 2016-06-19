@@ -55,7 +55,11 @@
 <div class="form-group">
 	<%= f.label :user_id, :class => 'control-label col-lg-2' %>
 	<div class="col-lg-10">
+		<%if current_user.admin? %>
 		<%= f.collection_select(:user_id, User.all, :id, :email, include_blank: false)%>
+		<% else %>
+		<%= f.text_field :user_id, :value => current_user.id, :class => 'form-control', :readonly => true %>
+		<% end%>
 	</div>
 	<%= f.error_span(:user_id) %>
 </div>

@@ -6,7 +6,7 @@ pt-BR:
       lodging: Alojamento  #g
       meal: Refeição  #g
       state: Estado  #g
-      toll_booth: Cabine de Pedágio  #g
+      toll_booth: Pedágio  #g
       travel: Viagem  #g
       user: Usuário  #g
       vehicle: Veículo  #g
@@ -24,8 +24,8 @@ pt-BR:
 
       lodging:
         date: Data  #g
-        hotelName: hotelname  #g
-        hotelPhone: Hotelphone  #g
+        hotelName: Nome do Hotel  #g
+        hotelPhone: Telefone do Hotel  #g
         image: Imagem  #g
         total: Total  #g
         travel: :activerecord.models.travel  #g
@@ -50,16 +50,18 @@ pt-BR:
 
       travel:
         cities: Cidades  #g
+        city_id: Cidade
         description: Descrição  #g
         finalDate: Data final  #g
-        finalOdometer: Finalodometer  #g
-        fuels: combustíveis  #g
-        initialDate: Initialdate  #g
+        finalOdometer: Odometro Final  #g
+        fuels: Combustíveis  #g
+        initialDate: Data Inicial  #g
         lodgings: Alojamentos  #g
-        meals: refeições  #g
-        toll_boths: boths pedágio  #g
-        vehicle: :activerecord.models.vehicle  #g
-
+        meals: Refeições  #g
+        toll_boths: Pedágios  #g
+        vehicle_id: Veiculo  #g
+        user_id: Usuario
+        
       user:
         confirmation_sent_at: Confirmação enviada em  #g
         confirmation_token: token de confirmação  #g
@@ -78,9 +80,10 @@ pt-BR:
         unconfirmed_email: email não confirmado  #g
 
       vehicle:
-        brand: marca  #g
+        brand: Marca  #g
         licencePlate: Placa do automóvel  #g
         model: Modelo  #g
-        odometerActual: Odometeractual  #g
+        odometerActual: Odometro Atual  #g
         travel: :activerecord.models.travel  #g
         year: Ano  #g
+       
