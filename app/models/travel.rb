@@ -7,6 +7,7 @@ class Travel < ActiveRecord::Base
   has_many :toll_booths, :dependent => :destroy
   accepts_nested_attributes_for :meals, :lodgings, :fuels, :toll_booths
   has_one :vehicle
+  belongs_to :user
   def total_meal_amount
     meals.map(&:total).sum
   end

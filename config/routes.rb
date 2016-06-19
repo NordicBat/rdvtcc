@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :travels do
-    resources :toll_booths
-    resources :fuels
-    resources :meals
-    resources :lodgings
-  end
+#  resources :users do
+    resources :travels do
+      resources :toll_booths
+      resources :fuels
+      resources :meals
+      resources :lodgings
+    end
+#  end
 
   resources :vehicles
   resources :cities
